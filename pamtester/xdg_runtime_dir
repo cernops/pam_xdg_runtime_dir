@@ -1,0 +1,2 @@
+# Just use for testing
+session optional pam_xdg_runtime_dir.so debug
