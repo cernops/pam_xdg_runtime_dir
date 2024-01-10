@@ -1,0 +1,15 @@
+---
+name: pamtester run of pam_xdg_runtime_dir
+on: [push]
+jobs:
+  pamtester:
+    runs-on: ubuntu-latest
+      steps:
+        - run: sudo apt install pamtester gcc make libselinux1-dev
+        - run: make
+        - run: sudo make install INSTALLDIR=/usr/lib/x86_64-linux-gnu
+        - run: sudo cp pamtester/xdg_runtime_dir
+        - run: sudo adduser testuser
+        - run: pamtester -v xdg_runtime_dir testuser open_session
+        - run: test -d /run/user/$(id -u testuser)
+
