@@ -1,0 +1,8 @@
+CMakeCache.txt
+build
+CMakeFiles/
+cmake_install.cmake
+pam_xdg_runtime_dir.so
+*.tar.gz
+*.tgz
+src/*.o

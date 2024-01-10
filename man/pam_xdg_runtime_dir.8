@@ -1,0 +1,50 @@
+.TH PAM_XDG RUNTIME DIR 8 "January 2024" "Version 1.0.0" "PAM Module Manual"
+.SH NAME
+pam_xdg_runtime_dir \- PAM module for creating user session directories
+
+.SH SYNOPSIS
+.B pam_xdg_runtime_dir
+[\fIOPTIONS\fR]
+
+.SH DESCRIPTION
+The pam_xdg_runtime_dir PAM module is responsible for creating a directory /run/user/<UID> for the user during the session opening process. It sets the ownership of the directory based on the user's UID and GID. Optionally, it supports debug mode for additional logging.
+
+.SH OPTIONS
+.TP
+.B debug
+Enables debug mode, producing additional log messages.
+
+.SH RETURN VALUES
+.PP
+This module returns PAM_SUCCESS on success and PAM_SESSION_ERR on failure.
+
+.SH EXAMPLES
+.PP
+The following example shows how to configure pam_xdg_runtime_dir in the PAM configuration file:
+.BR session required pam_xdg_runtime_dir debug
+
+.SH SEE ALSO
+.PP
+\fBpam\fR(8), \fBpam.d\fR(8)
+
+.SH AUTHORS
+Written by Your Name <your.email@example.com>
+
+.SH REPORTING BUGS
+Report bugs to <your.email@example.com>.
+
+.SH COPYRIGHT
+Copyright © 2024 Your Organization. This is free software; see the source for copying conditions. There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+.SH NOTES
+This manual page was written for the pam_xdg_runtime_dir module based on its behavior as of January 2024. Ensure that you consult the module's documentation for any updates or changes.
+
+.SH BUGS
+No known bugs.
+
+.SH VERSION
+This is pam_xdg_runtime_dir version 1.0.0.
+
+.SH DATE
+January 2024
+
