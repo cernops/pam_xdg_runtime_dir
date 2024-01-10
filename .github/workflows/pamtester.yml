@@ -4,12 +4,13 @@ on: [push]
 jobs:
   pamtester:
     runs-on: ubuntu-latest
-      steps:
-        - run: sudo apt install pamtester gcc make libselinux1-dev
-        - run: make
-        - run: sudo make install INSTALLDIR=/usr/lib/x86_64-linux-gnu
-        - run: sudo cp pamtester/xdg_runtime_dir
-        - run: sudo adduser testuser
-        - run: pamtester -v xdg_runtime_dir testuser open_session
-        - run: test -d /run/user/$(id -u testuser)
-
+    steps:
+      - run: sudo apt install pamtester gcc make libselinux-dev libpam-dev
+      - uses: actions/checkout@v4
+      - run: make
+      - run: sudo make install INSTALLDIR=/usr/lib/x86_64-linux-gnu/security
+      - run: sudo cp pamtester/xdg_runtime_dir /etc/pam.d/xdg_runtime_dir
+      - run: sudo adduser testuser
+      - run: sudo pamtester -v xdg_runtime_dir testuser open_session
+      - run: test -d /run/user/$(id -u testuser)
+      - run: test $(stat --format=%U /run/user/$(id -u testuser)) == testuser
