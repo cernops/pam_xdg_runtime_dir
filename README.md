@@ -19,7 +19,7 @@ kerberos credential. See the  `pam_krb5_cc_move` pam module.
 
 ## Links
 
-* https://gitlab.cern.ch/lxplus/pam_xdg_runtime_dir
-* https://gitlab.cern.ch/lxplus/pam_krb5_cc_move
+* https://github.com/cernops/pam_xdg_runtime_dir
+* https://github.com/cernops/pam_krb5_cc_move
 * https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 
